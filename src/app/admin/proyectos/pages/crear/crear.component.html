@@ -1,0 +1,33 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3 class="mb-4">Agregar proyecto</h3>
+            <form [formGroup]="proyectoForm" (ngSubmit)="submitForm()" novalidate>
+                <div class="form-group mb-2">
+                    <label>Proyecto</label>
+                    <input type="text" formControlName="proyecto" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group mb-2">
+                    <label>Costo</label>
+                    <input type="number" formControlName="costo" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group mb-2">
+                    <label>Fecha Inicio</label>
+                    <input type="date" formControlName="fe_inicio" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group mb-2">
+                    <label>Fecha Fin</label>
+                    <input type="date" formControlName="fe_fin" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group mb-4">
+                    <input type="hidden" formControlName="estado" class="form-control" maxlength="1">
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success me-3">Crear</button>
+                    <button type="submit" class="btn btn-danger" [routerLink]="['../listar']" >Regresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>

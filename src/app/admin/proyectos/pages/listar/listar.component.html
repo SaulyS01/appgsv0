@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-6 mb-3">
+        <div class="btn-group d-flex justify-content-center">
+            <button type="button" class="btn btn-success" [routerLink]="['../crear']">Crear</button>
+            <button type="button" class="btn btn-danger">Exportar</button>
+            <button type="button" class="btn btn-info">Info</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="list-group">
+            <a class="list-group-item"
+                *ngFor="let proyecto of listarProyectos.data">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1" *ngIf="proyecto.estado == '1'">Finalizado</h5>
+                    <h5 class="mb-1" *ngIf="proyecto.estado == '2'">En curso</h5>
+                    <h5 class="mb-1" *ngIf="proyecto.estado == '3'">Cancelado</h5>
+                    <small>{{proyecto.fe_inicio}} - {{proyecto.fe_fin}}</small>
+                </div>
+                <a (click)="getProyecto(proyecto.id)" class="mb-1">{{proyecto.proyecto}}</a>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        Costo del proyecto: <small>{{proyecto.costo}}</small> soles
+                    </div>
+                    <div>
+                        <button class="btn btn-danger me-2" (click)="deleteEquipo(proyecto.id)"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-warning"><i class="fa fa-edit" [routerLink]="['/admin/proyectos/editar', proyecto.id]"></i></button>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div class="col" *ngIf="verificar; else elseBlock">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link">Planes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #elseBlock>Seleccionar proyecto para mayor información...</ng-template>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container-fluid mt-3">
+    <div class="mb-3 btn-group d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" [routerLink]="['dashboard']" [routerLinkActive]="['active']">Hogar</button>
+        <button type="button" class="btn btn-primary" [routerLink]="['proyectos/listar']" [routerLinkActive]="['active']">Proyectos</button>
+        <button type="button" class="btn btn-primary" [routerLink]="['planes/listar']" [routerLinkActive]="['active']">Planes</button>
+    </div>
+    <div class="row">
+        <router-outlet></router-outlet>
+    </div>
+</div>
